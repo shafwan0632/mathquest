@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Yeon+Sung&display=swap"
+      rel="stylesheet"
+    />
+    <title>MATH QUEST</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        height: 100%;
+      }
+      .desain1 {
+        opacity: 1;
+        background-color: #fce7c8;
+        position: absolute;
+        top: 282px;
+        width: 100%;
+        height: 45%;
+        margin: 0px;
+      }
+      .container1 {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#b1c29e, #fada7ad5);
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        place-items: center; /* Memposisikan isi di tengah */
+      }
+      .container1-1 {
+        background: linear-gradient(#b1c29e, #fada7ad5);
+      }
+      .container1-2 {
+        background: linear-gradient(#9ec2b7, #fab47ad5);
+      }
+      .container1-3 {
+        background: linear-gradient(#fada7ad5, #9ec2b7);
+      }
+      .sec1 {
+        width: 100%;
+        height: 100%;
+      }
+      .sec2 {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 0px;
+      }
+      .sec3 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        column-gap: 40px;
+        justify-content: center;
+      }
+      .sec4 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+
+      .judul1,
+      .judul2 {
+        position: absolute;
+        font-family: "Yeon Sung";
+        font-size: 30px;
+        transition: color 0.3s;
+      }
+      .judul1 {
+        right: 400px;
+        top: 60px;
+      }
+      .judul2 {
+        right: 470px;
+        top: 90px;
+      }
+      .judul1:hover,
+      .judul2:hover {
+        color: white;
+        cursor: pointer;
+      }
+      .info_level1,
+      .info_level2,
+      .info_level3 {
+        margin: 0px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .tabel_level {
+        font-family: "Yeon Sung";
+        margin: 0px;
+        color: rgba(255, 255, 255, 0.486);
+        background: linear-gradient(#5b913b7a, #75bb4d62);
+        width: 17%;
+        height: 80%;
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2);
+        transition: scale 0.15s;
+      }
+      .pilihan1,
+      .pilihan2,
+      .pilihan3,
+      .pilihan4 {
+        height: 80%;
+        width: 15%;
+        display: flex;
+      }
+      .level1,
+      .level2,
+      .level3 {
+        height: 40%;
+        width: 10%;
+        display: flex;
+        margin-top: 60px;
+        margin-left: 20px;
+      }
+      .submit {
+        height: 60%;
+        width: 15%;
+        display: flex;
+        margin-top: 20px;
+        margin-left: 500px;
+      }
+      .button_pilihan1,
+      .button_pilihan2,
+      .button_pilihan3,
+      .button_pilihan4 {
+        border: none;
+        width: 100%;
+        border-radius: 60px;
+        background-color: #fada7a;
+        background: linear-gradient(#fabe7a, #fada7a);
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2),
+          inset 10px 10px 20px rgba(0, 0, 0, 0.05);
+      }
+      .button_level1,
+      .button_level2,
+      .button_level3 {
+        font-family: "Yeon Sung";
+        border-width: 1px;
+        border-style: solid;
+        border-color: #81582b4d;
+        width: 100%;
+        border-radius: 60px;
+        background-color: #f0a04b;
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.15),
+          inset 10px 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      .button_submit {
+        font-family: "Yeon Sung";
+        border-width: 1px;
+        border-style: solid;
+        border-color: #81582b4d;
+        width: 100%;
+        border-radius: 60px;
+        background: linear-gradient(#5b913b, #75bb4d);
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2),
+          inset 10px 10px 20px rgba(255, 255, 255, 0.05);
+      }
+      .kotak_soal {
+        display: flex;
+        border: #00000057;
+        border-style: solid;
+        background-color: #f5dbb4;
+        width: 30%;
+        height: 80%;
+        margin-left: 190px;
+        margin-right: auto;
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2),
+          inset 10px 10px 60px #c99b566e;
+
+        justify-content: center;
+      }
+      .soal {
+        font-size: 40px;
+        align-content: center;
+      }
+      button {
+        transition: scale 0.15s, background 0.55s, box-shadow 0.9s;
+      }
+      button:hover {
+        scale: 0.9;
+        background: rgba(63, 48, 8, 0.144);
+        box-shadow: 0 4px 60px rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+      }
+      button:active {
+        scale: 1.1;
+      }
+      .tabel_level:hover,
+      .tabel_skor:hover {
+        scale: 1.07;
+        cursor: context-menu;
+      }
+
+      .tabel_skor {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-rows: 1fr 1fr 1fr;
+        background: linear-gradient(#5b913b7a, #75bb4d62);
+        margin-top: 10px;
+        width: 15%;
+        height: 90%;
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2);
+        transition: scale 0.15s;
+      }
+      .button1_tabel_skor,
+      .button2_tabel_skor,
+      .button3_tabel_skor {
+        font-family: "Yeon Sung";
+        border-width: 1px;
+        border-style: solid;
+        border-color: #81582b4d;
+        width: 160%;
+        margin-left: -15px;
+        height: 25px;
+        border-radius: 60px;
+        background: linear-gradient(#5b913b, #75bb4d);
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.2),
+          inset 10px 10px 20px rgba(255, 255, 255, 0.05);
+      }
+      .button_klik {
+        scale: 0.9;
+        background: rgba(63, 48, 8, 0.144);
+        box-shadow: 0 4px 60px rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!--<div class="desain1">0</div> -->
+    <div class="container1">
+      <div class="sec1">
+        <div class="tabel_skor">
+          <div class="container1_tabel_skor">
+            <button class="button1_tabel_skor" onclick="cek_button(1);">
+              PENJUMLAHAN
+            </button>
+          </div>
+          <div class="container2_tabel_skor">
+            <button class="button2_tabel_skor" onclick="cek_button(2);">
+              PERKALIAN
+            </button>
+          </div>
+          <div class="container3_tabel_skor">
+            <button class="button3_tabel_skor" onclick="cek_button(3);">
+              PEMBAGIAN
+            </button>
+          </div>
+        </div>
+        <p class="judul1">MATH QUEST GENERATOR</p>
+        <p class="judul2">BY SHAFWAN</p>
+      </div>
+      <div class="sec2">
+        <div class="tabel_level">
+          <p class="info_level1">level 1 completed: 0%</p>
+          <p class="info_level1">level 2 completed: 0%</p>
+          <p class="info_level1">level 3 completed: 0%</p>
+        </div>
+        <div class="kotak_soal"><p class="soal">183 * 472</p></div>
+      </div>
+      <div class="sec3">
+        <div class="pilihan1">
+          <button class="button_pilihan1" onclick="pilihan_user(1);">3</button>
+        </div>
+        <div class="pilihan2" onclick="pilihan_user(2);">
+          <button class="button_pilihan2">6</button>
+        </div>
+        <div class="pilihan3" onclick="pilihan_user(3);">
+          <button class="button_pilihan3">19</button>
+        </div>
+        <div class="pilihan4" onclick="pilihan_user(4);">
+          <button class="button_pilihan4">42</button>
+        </div>
+      </div>
+      <div class="sec4">
+        <div class="level1">
+          <button class="button_level1" , onclick="banksoal(1);">
+            LEVEL 1
+          </button>
+        </div>
+        <div class="level2">
+          <button class="button_level2" , onclick="banksoal(2);">
+            LEVEL 2
+          </button>
+        </div>
+        <div class="level3">
+          <button class="button_level3" , onclick="banksoal(3);">
+            LEVEL 3
+          </button>
+        </div>
+        <div class="submit">
+          <button class="button_submit" onclick="cek_jawaban();">
+            SUBMIT =>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let angka;
+    let modepenjumlahan = false;
+    let modeperkalian = false;
+    let modepembagian = false;
+    let soal_kiri;
+    let soal_kanan;
+    let jawaban;
+    let button_jawaban;
+    let button_user;
+    let jawaban_user;
+    let acak_jenis_soal;
+    let level_sub;
+
+    function pilihan_user(button_user) {
+      for (let i = 1; i < 5; i++) {
+        document
+          .querySelector(`.button_pilihan${i}`)
+          .classList.remove("button_klik");
+      }
+      document
+        .querySelector(`.button_pilihan${button_user}`)
+        .classList.add("button_klik");
+      jawaban_user = document.querySelector(
+        `.button_pilihan${button_user}`
+      ).textContent;
+    }
+
+    function cek_jawaban() {
+      for (let i = 1; i < 5; i++) {
+        document
+          .querySelector(`.button_pilihan${i}`)
+          .classList.remove("button_klik");
+      }
+      level = level_sub;
+      console.log(jawaban_user);
+      console.log(jawaban);
+      if (jawaban_user == jawaban) {
+        console.log(`benar!jawabannya adalah ${jawaban_user}`);
+        banksoal(level);
+      } else {
+        console.log(`salah!`);
+      }
+    }
+    function acakjawaban(level, jawaban, acak_jenis_soal) {
+      if (level === 1) {
+        //penjumlahan 1 (1-50)
+        if (acak_jenis_soal == 1) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 50) + 1;
+          }
+          //perkalian 1 (1-100)
+        } else if (acak_jenis_soal == 2) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 100) + 1;
+          }
+          //pembagian 1
+        } else {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 100) + 1;
+          }
+        }
+      } else if (level === 2) {
+        //penjumlahan 2 (1-500)
+        if (acak_jenis_soal == 1) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 500) + 1;
+          }
+          //perkalian 2 (64-400)
+        } else if (acak_jenis_soal == 2) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 336) + 64;
+          }
+          //pembagian 2
+        } else {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 175) + 50;
+          }
+        }
+      } else {
+        //penjumalahan 3 (500-15000)
+        if (acak_jenis_soal == 1) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 15000) + 500;
+          }
+          //perkalian 3 (400-900)
+        } else if (acak_jenis_soal == 2) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 500) + 400;
+          }
+          //pembagian 3
+        } else if (acak_jenis_soal == 3) {
+          for (let i = 1; i < 5; i++) {
+            document.querySelector(`.button_pilihan${i}`).textContent =
+              Math.floor(Math.random() * 275) + 25;
+          }
+        }
+      }
+      button_jawaban = Math.floor(Math.random() * 4) + 1;
+      document.querySelector(
+        `.button_pilihan${button_jawaban}`
+      ).textContent = `${jawaban}`;
+    }
+    function cek_button(jeniss_soal) {
+      if (jeniss_soal == 1 && modepenjumlahan) {
+        document
+          .querySelector(`.button1_tabel_skor`)
+          .classList.remove("button_klik");
+        modepenjumlahan = false;
+        console.log("mode penjumlahan dimatikan!");
+      } else if (jeniss_soal == 2 && modeperkalian) {
+        document
+          .querySelector(`.button2_tabel_skor`)
+          .classList.remove("button_klik");
+        modeperkalian = false;
+      } else if (jeniss_soal == 3 && modepembagian) {
+        document
+          .querySelector(`.button3_tabel_skor`)
+          .classList.remove("button_klik");
+        modepembagian = false;
+      } else {
+        sub_jenis_soal(jeniss_soal);
+      }
+    }
+    function banksoal(level) {
+      for (let i = 1; i < 4; i++) {
+        document
+          .querySelector(`.button_level${i}`)
+          .classList.remove("button_klik");
+      }
+      document
+        .querySelector(`.button_level${level}`)
+        .classList.add("button_klik");
+      for (let i = 1; i < 4; i++) {
+        document
+          .querySelector(`.container1`)
+          .classList.remove(`container1-${i}`);
+      }
+      document
+        .querySelector(`.container1`)
+        .classList.add(`container1-${level}`);
+      level_sub = level;
+      if (!modepembagian && !modepenjumlahan && !modeperkalian) {
+        acak_jenis_soal = Math.floor(Math.random() * 3) + 1;
+      }
+      if (acak_jenis_soal == 1) {
+        penjumlahan(level, acak_jenis_soal);
+      } else if (acak_jenis_soal == 2) {
+        perkalian(level, acak_jenis_soal);
+      } else {
+        pembagian(level, acak_jenis_soal);
+      }
+    }
+    function sub_jenis_soal(jeniss_soal) {
+      for (let i = 1; i < 4; i++) {
+        document
+          .querySelector(`.button${i}_tabel_skor`)
+          .classList.remove("button_klik");
+      }
+      document
+        .querySelector(`.button${jeniss_soal}_tabel_skor`)
+        .classList.add("button_klik");
+      modeperkalian = false;
+      modepenjumlahan = false;
+      modepembagian = false;
+      if (jeniss_soal == 1) {
+        acak_jenis_soal = 1;
+        modepenjumlahan = true;
+        penjumlahan(level_sub, 1);
+      } else if (jeniss_soal == 2) {
+        acak_jenis_soal = 2;
+        modeperkalian = true;
+        perkalian(level_sub, 2);
+      } else {
+        acak_jenis_soal = 3;
+        modepembagian = true;
+        pembagian(level_sub, 3);
+      }
+    }
+
+    function penjumlahan(level, acak_jenis_soal) {
+      if (level === 1) {
+        soal_kiri = Math.floor(Math.random() * 50) + 1;
+        soal_kanan = Math.floor(Math.random() * 50) + 1;
+        jawaban = soal_kiri + soal_kanan;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kiri} + ${soal_kanan}`;
+        acakjawaban(1, jawaban, acak_jenis_soal);
+      } else if (level === 2) {
+        soal_kiri = Math.floor(Math.random() * 500) + 1;
+        soal_kanan = Math.floor(Math.random() * 500) + 1;
+        jawaban = soal_kiri + soal_kanan;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kiri} + ${soal_kanan}`;
+        acakjawaban(2, jawaban, acak_jenis_soal);
+      } else if (level === 3) {
+        soal_kiri = Math.floor(Math.random() * 10000) + 1;
+        soal_kanan = Math.floor(Math.random() * 10000) + 1;
+        jawaban = soal_kiri + soal_kanan;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kiri} + ${soal_kanan}`;
+        acakjawaban(3, jawaban, acak_jenis_soal);
+      }
+    }
+    function perkalian(level, acak_jenis_soal) {
+      if (level === 1) {
+        soal_kiri = Math.floor(Math.random() * 10) + 1;
+        soal_kanan = Math.floor(Math.random() * 10) + 1;
+        jawaban = soal_kiri * soal_kanan;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kiri} * ${soal_kanan}`;
+        acakjawaban(1, jawaban, acak_jenis_soal);
+      } else if (level === 2) {
+        soal_kiri = Math.floor(Math.random() * 12) + 8;
+        soal_kanan = Math.floor(Math.random() * 12) + 8;
+        jawaban = soal_kiri * soal_kanan;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kiri} * ${soal_kanan}`;
+        acakjawaban(2, jawaban, acak_jenis_soal);
+      } else if (level === 3) {
+        soal_kiri = Math.floor(Math.random() * 10) + 20;
+        soal_kanan = Math.floor(Math.random() * 10) + 20;
+        jawaban = soal_kiri * soal_kanan;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kiri} * ${soal_kanan}`;
+        acakjawaban(3, jawaban, acak_jenis_soal);
+      }
+    }
+    function pembagian(level, acak_jenis_soal) {
+      if (level === 1) {
+        //1-10
+        //1-100
+        soal_kiri = Math.floor(Math.random() * 10) + 1;
+        jawaban = Math.floor(Math.random() * 10) + 1;
+        soal_kanan = soal_kiri * jawaban;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kanan} / ${soal_kiri}`;
+        acakjawaban(1, jawaban, acak_jenis_soal);
+      } else if (level === 2) {
+        //5-15
+        //50-225
+        soal_kiri = Math.floor(Math.random() * 5) + 10;
+        jawaban = Math.floor(Math.random() * 10) + 5;
+        soal_kanan = soal_kiri * jawaban;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kanan} / ${soal_kiri}`;
+        acakjawaban(1, jawaban, acak_jenis_soal);
+      } else if (level === 3) {
+        //10-15
+        //25-300
+        soal_kiri = Math.floor(Math.random() * 5) + 15;
+        jawaban = Math.floor(Math.random() * 5) + 10;
+        soal_kanan = soal_kiri * jawaban;
+        document.querySelector(
+          ".soal"
+        ).textContent = `${soal_kanan} / ${soal_kiri}`;
+        acakjawaban(1, jawaban, acak_jenis_soal);
+      }
+    }
+    banksoal(1);
+  </script>
+</html>
